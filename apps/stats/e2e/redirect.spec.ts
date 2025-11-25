@@ -5,7 +5,8 @@ const statsPath = "/apps/f3fw/ytd.php";
 const currentYear = new Date().getFullYear();
 
 test("redirects homepage to the current-year stats view", async ({ page }) => {
-  await page.goto("/");
+  // Third-party assets on the target stats page can hang; only wait for the navigation to commit.
+  await page.goto("/", { waitUntil: "commit" });
 
   await page.waitForURL(
     (url) =>
