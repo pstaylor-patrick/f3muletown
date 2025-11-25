@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+import { getStatsRedirectUrl } from "@f3muletown/redirects";
+
 import Home from "./page";
 
 vi.mock("next/navigation", () => ({
@@ -19,10 +21,10 @@ describe("stats redirect", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2024-07-04T15:00:00Z"));
 
+    const expectedUrl = getStatsRedirectUrl();
+
     Home();
 
-    expect(mockedRedirect).toHaveBeenCalledWith(
-      "https://www.yourfullstack.com/apps/f3fw/ytd.php?year=2024&location=f3muletown"
-    );
+    expect(mockedRedirect).toHaveBeenCalledWith(expectedUrl);
   });
 });
