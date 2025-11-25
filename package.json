@@ -1,0 +1,33 @@
+{
+  "name": "f3muletown",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "test:e2e": "playwright test",
+    "test:coverage": "turbo run test:coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.23.0",
+  "devDependencies": {
+    "@f3muletown/prettier-config": "workspace:*",
+    "@f3muletown/vitest-config": "workspace:*",
+    "@playwright/test": "^1.57.0",
+    "@types/jsdom": "^21.1.7",
+    "@vitest/coverage-v8": "^2.1.4",
+    "jsdom": "^26.0.0",
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.1",
+    "vitest": "^2.1.4"
+  }
+}
