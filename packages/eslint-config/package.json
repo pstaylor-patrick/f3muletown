@@ -1,0 +1,17 @@
+{
+  "name": "@f3muletown/eslint-config",
+  "version": "1.0.0",
+  "description": "Shared ESLint configuration for the f3muletown workspace.",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./eslint.config.mjs"
+  },
+  "files": [
+    "eslint.config.mjs"
+  ],
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0"
+  }
+}
