@@ -1,0 +1,16 @@
+{
+  "name": "@f3muletown/vitest-config",
+  "version": "1.0.0",
+  "description": "Shared Vitest configuration for the f3muletown workspace.",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./vitest.config.mjs"
+  },
+  "files": [
+    "vitest.config.mjs"
+  ],
+  "peerDependencies": {
+    "vitest": "^2.0.0"
+  }
+}

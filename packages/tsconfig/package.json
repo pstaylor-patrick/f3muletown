@@ -1,0 +1,14 @@
+{
+  "name": "@f3muletown/tsconfig",
+  "version": "1.0.0",
+  "description": "Shared TypeScript configuration for the f3muletown apps.",
+  "private": true,
+  "exports": {
+    "./base": "./tsconfig.base.json",
+    "./next": "./tsconfig.next.json"
+  },
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.next.json"
+  ]
+}

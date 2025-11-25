@@ -1,0 +1,10 @@
+{
+  "name": "@f3muletown/prettier-config",
+  "version": "1.0.0",
+  "description": "Shared Prettier configuration for the f3muletown workspace.",
+  "private": true,
+  "main": "index.cjs",
+  "files": [
+    "index.cjs"
+  ]
+}

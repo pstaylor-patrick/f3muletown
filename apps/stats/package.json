@@ -1,0 +1,36 @@
+{
+  "name": "f3muletown-stats",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "next": "16.0.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@f3muletown/eslint-config": "workspace:*",
+    "@f3muletown/tsconfig": "workspace:*",
+    "@f3muletown/vitest-config": "workspace:*",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.4",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "@types/jsdom": "^21.1.7",
+    "@vitest/coverage-v8": "^2.1.4",
+    "jsdom": "^26.0.0",
+    "vitest": "^2.1.4"
+  }
+}

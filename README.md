@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# F3 Muletown
 
-## Getting Started
+Monorepo for two small Next.js apps that route traffic to the right F3 Muletown destinations.
 
-First, run the development server:
+## Apps & ports
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `apps/web` (`f3muletown-website`): Redirects to the official F3 Muletown region page; dev server on http://localhost:3000. Details: apps/web/README.md.
+- `apps/stats` (`f3muletown-stats`): Redirects to the year-to-date stats dashboard on yourfullstack.com; dev server on http://localhost:3001 (set `PORT=3001` when running a production build). Details: apps/stats/README.md.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quick start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Install dependencies with `pnpm install`.
+- Run both apps during development with `pnpm dev` (Turbo starts each app on its configured port).
+- Work on a single app with `pnpm --filter f3muletown-website dev` or `pnpm --filter f3muletown-stats dev`.
+- Common tasks: `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Maintainers guide
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Redirect targets live in `apps/web/lib/redirect.ts` and `apps/stats/app/page.tsx`; edit them if URLs or locations change.
+- Keep port conventions: 3000 for the web redirect, 3001 for stats. Set `PORT` explicitly when running `next start` to avoid collisions.
+- New apps belong under `apps/`; add a short README and note their dev port here to keep the registry current.
