@@ -1,0 +1,27 @@
+{
+  "name": "@f3muletown/redirects",
+  "version": "1.0.0",
+  "description": "Shared redirect helpers for f3muletown apps.",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@f3muletown/tsconfig": "workspace:*",
+    "@f3muletown/vitest-config": "workspace:*",
+    "typescript": "^5",
+    "vitest": "^2.1.4"
+  }
+}

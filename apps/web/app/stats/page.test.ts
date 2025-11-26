@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { getStatsRedirectUrl } from "@f3muletown/redirects";
 
-import Home from "./page";
+import StatsRedirect from "./page";
 
 vi.mock("next/navigation", () => ({
   redirect: vi.fn(),
@@ -11,7 +11,7 @@ vi.mock("next/navigation", () => ({
 
 const mockedRedirect = vi.mocked(redirect);
 
-describe("stats redirect", () => {
+describe("web stats redirect", () => {
   afterEach(() => {
     vi.clearAllMocks();
     vi.useRealTimers();
@@ -19,11 +19,11 @@ describe("stats redirect", () => {
 
   it("redirects to the stats page for the current year", () => {
     vi.useFakeTimers();
-    vi.setSystemTime(new Date("2024-07-04T15:00:00Z"));
+    vi.setSystemTime(new Date("2025-01-02T12:00:00Z"));
 
     const expectedUrl = getStatsRedirectUrl();
 
-    Home();
+    StatsRedirect();
 
     expect(mockedRedirect).toHaveBeenCalledWith(expectedUrl);
   });

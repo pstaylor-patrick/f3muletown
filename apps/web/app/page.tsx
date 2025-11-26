@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import { redirectUrl } from "@/lib/redirect";
+import { getRegionRedirectUrl } from "@f3muletown/redirects";
 
 export default function Home() {
-  redirect(redirectUrl);
+  redirect(getRegionRedirectUrl());
 }
