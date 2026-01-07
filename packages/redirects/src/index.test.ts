@@ -1,11 +1,6 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import {
-  defaults,
-  getRegionRedirectUrl,
-  getStatsRedirectUrl,
-  redirects,
-} from "./index";
+import { getRegionRedirectUrl, getStatsRedirectUrl, redirects } from "./index";
 
 describe("@f3muletown/redirects", () => {
   describe("getRegionRedirectUrl", () => {
@@ -23,28 +18,9 @@ describe("@f3muletown/redirects", () => {
   });
 
   describe("getStatsRedirectUrl", () => {
-    afterEach(() => {
-      vi.useRealTimers();
-    });
-
-    it("uses the current year and default location when not provided", () => {
-      vi.useFakeTimers();
-      vi.setSystemTime(new Date("2026-02-15T10:00:00Z"));
-
+    it("returns the stats redirect URL", () => {
       expect(getStatsRedirectUrl()).toBe(
-        "https://www.yourfullstack.com/apps/f3fw/ytd.php?year=2026&location=f3muletown"
-      );
-    });
-
-    it("accepts custom years and locations", () => {
-      expect(
-        getStatsRedirectUrl({ year: 2023, location: defaults.statsLocation })
-      ).toBe(
-        "https://www.yourfullstack.com/apps/f3fw/ytd.php?year=2023&location=f3muletown"
-      );
-
-      expect(getStatsRedirectUrl({ year: 2025, location: "f3wherever" })).toBe(
-        "https://www.yourfullstack.com/apps/f3fw/ytd.php?year=2025&location=f3wherever"
+        "https://pax-vault.f3nation.com/stats/region/35838"
       );
     });
   });
@@ -61,8 +37,8 @@ describe("@f3muletown/redirects", () => {
     });
 
     it("provides a stats shortcut", () => {
-      expect(redirects.stats({ year: 2030, location: "f3alpha" })).toBe(
-        "https://www.yourfullstack.com/apps/f3fw/ytd.php?year=2030&location=f3alpha"
+      expect(redirects.stats()).toBe(
+        "https://pax-vault.f3nation.com/stats/region/35838"
       );
     });
   });

@@ -1,31 +1,21 @@
 const REGION_BASE_URL = "https://regions.f3nation.com";
 const DEFAULT_REGION_SLUG = "muletown";
 
-const STATS_BASE_URL = "https://www.yourfullstack.com/apps/f3fw/ytd.php";
-const DEFAULT_STATS_LOCATION = "f3muletown";
-
-export type StatsRedirectOptions = {
-  year?: number;
-  location?: string;
-};
+const STATS_URL = "https://pax-vault.f3nation.com/stats/region/35838";
 
 export const defaults = {
   regionSlug: DEFAULT_REGION_SLUG,
-  statsLocation: DEFAULT_STATS_LOCATION,
 } as const;
 
 export function getRegionRedirectUrl(slug: string = DEFAULT_REGION_SLUG) {
   return `${REGION_BASE_URL}/${slug}`;
 }
 
-export function getStatsRedirectUrl({
-  year = new Date().getFullYear(),
-  location = DEFAULT_STATS_LOCATION,
-}: StatsRedirectOptions = {}) {
-  return `${STATS_BASE_URL}?year=${year}&location=${location}`;
+export function getStatsRedirectUrl() {
+  return STATS_URL;
 }
 
 export const redirects = {
   regionHome: getRegionRedirectUrl,
-  stats: (options?: StatsRedirectOptions) => getStatsRedirectUrl(options),
+  stats: getStatsRedirectUrl,
 } as const;
