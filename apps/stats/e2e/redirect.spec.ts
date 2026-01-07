@@ -1,19 +1,14 @@
 import { expect, test } from "@playwright/test";
 
-const statsHost = "www.yourfullstack.com";
-const statsPath = "/apps/f3fw/ytd.php";
-const currentYear = new Date().getFullYear();
+const statsHost = "pax-vault.f3nation.com";
+const statsPath = "/stats/region/35838";
 
-test("redirects homepage to the current-year stats view", async ({ page }) => {
+test("redirects homepage to the stats page", async ({ page }) => {
   // Third-party assets on the target stats page can hang; only wait for the navigation to commit.
   await page.goto("/", { waitUntil: "commit" });
 
   await page.waitForURL(
-    (url) =>
-      url.host === statsHost &&
-      url.pathname === statsPath &&
-      url.searchParams.get("year") === String(currentYear) &&
-      url.searchParams.get("location") === "f3muletown",
+    (url) => url.host === statsHost && url.pathname === statsPath,
     { timeout: 15_000 }
   );
 
@@ -22,6 +17,4 @@ test("redirects homepage to the current-year stats view", async ({ page }) => {
   expect(url.protocol).toBe("https:");
   expect(url.host).toBe(statsHost);
   expect(url.pathname).toBe(statsPath);
-  expect(url.searchParams.get("year")).toBe(String(currentYear));
-  expect(url.searchParams.get("location")).toBe("f3muletown");
 });
