@@ -1,7 +1,5 @@
 # F3 Muletown
 
-random change to trigger ci build
-
 Monorepo for two small Next.js apps that route traffic to the right F3 Muletown destinations.
 
 ## Apps & ports
