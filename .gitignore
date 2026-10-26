@@ -53,3 +53,10 @@ yarn-error.log*
 next-env.d.ts
 
 pr.md
+# terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+crash.log
