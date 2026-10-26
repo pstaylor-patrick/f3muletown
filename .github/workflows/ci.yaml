@@ -132,3 +132,26 @@ jobs:
 
       - name: Run E2E tests
         run: pnpm test:e2e
+
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.5
+
+      - name: Format check
+        run: terraform fmt -check -recursive
+
+      - name: Init (no backend)
+        run: terraform init -backend=false
+
+      - name: Validate
+        run: terraform validate
